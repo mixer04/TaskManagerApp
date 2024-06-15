@@ -15,7 +15,9 @@ struct TaskRowView: View {
             Text(task.title)
             Spacer()
             if task.isCompleted {
-                Image(systemName: "checkmark")
+                Image(systemName: "checkmark.circle.fill")
+                    .foregroundColor(.green)
+                    .font(.title)
             }
         }
     }
