@@ -16,60 +16,58 @@ struct TaskDetailView: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 20) {
-            HStack {
-                Text(task.title)
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                Spacer()
-                if task.isCompleted {
-                    Image(systemName: "checkmark.circle.fill")
-                        .foregroundColor(.green)
-                        .font(.title)
+        ZStack {
+            PurpleGlassBackgroundView(isCompleted: task.isCompleted)
+                .zIndex(0)  // Ensure the background is at the lowest layer
+            VStack(alignment: .leading, spacing: 20) {
+                // Title and Description section
+                VStack(alignment: .leading, spacing: 10) {
+                    Text(task.title)
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                    Text(task.taskDescription)
+                        .font(.body)
                 }
-            }
-            .padding(.bottom, 20)
-            
-            VStack(alignment: .leading, spacing: 10) {
-                Text("Description")
-                    .font(.headline)
-                Text(task.taskDescription)
-                    .font(.body)
-                    .padding(.vertical, 10)
-                    .padding(.horizontal)
-                    .background(Color(.systemGray6))
-                    .cornerRadius(10)
-            }
-            .padding(.bottom, 20)
-            
-            VStack(alignment: .leading, spacing: 10) {
-                Text("Due Date")
-                    .font(.headline)
-                Text(task.dueDate, formatter: DateFormatter.taskDateFormatter)
-                    .font(.body)
-                    .padding(.vertical, 10)
-                    .padding(.horizontal)
-                    .background(Color(.systemGray6))
-                    .cornerRadius(10)
-            }
-            .padding(.bottom, 20)
-            
-            Toggle("Completed", isOn: $task.isCompleted)
                 .padding()
-                .background(Color(.systemGray6))
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .background(.thickMaterial)
                 .cornerRadius(10)
-                .onChange(of: task.isCompleted) { value in
-                    saveTask()
+                .shadow(radius: 5)
+                
+                // Due date section
+                VStack(alignment: .leading, spacing: 10) {
+                    Text("Due Date")
+                        .font(.headline)
+                    Text(task.dueDate, formatter: DateFormatter.taskDateFormatter)
+                        .font(.body)
+                
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .cornerRadius(10)
                 }
-            
-            Spacer()
+                .padding()
+                .background(.thickMaterial)
+                .cornerRadius(10)
+                .shadow(radius: 5)
+                
+                // Completed toggle section
+                Toggle("Completed", isOn: $task.isCompleted)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(.thickMaterial)
+                    .cornerRadius(10)
+                    .shadow(radius: 5)
+                    .onChange(of: task.isCompleted) { value in
+                        withAnimation(.easeInOut(duration: 0.5)) {
+                            saveTask()
+                        }
+                    }
+                
+                Spacer()
+            }
+            .padding()
+            .navigationBarTitle("Task Details", displayMode: .inline)
+            .zIndex(1)  // Ensure content is above the background
         }
-        .padding()
-        .background(.thinMaterial)
-        .cornerRadius(20)
-        .shadow(radius: 10)
-        .padding()
-        .navigationBarTitle("Task Details", displayMode: .inline)
     }
     
     private func saveTask() {
@@ -79,15 +77,6 @@ struct TaskDetailView: View {
             print("Failed to save task: \(error)")
         }
     }
-}
-
-extension DateFormatter {
-    static let taskDateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .none
-        return formatter
-    }()
 }
 
 struct TaskDetailView_Previews: PreviewProvider {

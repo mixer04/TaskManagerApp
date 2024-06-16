@@ -14,27 +14,28 @@ struct TaskListView: View {
     @State private var showingCreateTaskView = false
     
     var body: some View {
-        NavigationView {
-            VStack {
-                ProgressBarsView(tasks: tasks)
-                    .background(.thinMaterial)
-                    .cornerRadius(10)
-                    .padding(.horizontal)
-                
-                List {
-                    TaskSectionView(title: "Today's Tasks", tasks: tasks, filter: .day)
-                    TaskSectionView(title: "This Week's Tasks", tasks: tasks, filter: .week)
-                    TaskSectionView(title: "This Month's Tasks", tasks: tasks, filter: .month)
-                    TaskSectionView(title: "Other Tasks", tasks: tasks, filter: .other)
-                }
-                .navigationBarTitle("Tasks")
-                .navigationBarItems(leading: EditButton(), trailing: Button(action: {
-                    showingCreateTaskView = true
-                }) {
-                    Image(systemName: "plus")
-                })
-                .sheet(isPresented: $showingCreateTaskView) {
-                    CreateTaskView()
+        ZStack {
+            NavigationView {
+                VStack {
+                    ProgressBarsView(tasks: tasks)
+                    
+                    List {
+                        TaskSectionView(title: "Today's Tasks", tasks: tasks, filter: .day)
+                        TaskSectionView(title: "This Week's Tasks", tasks: tasks, filter: .week)
+                        TaskSectionView(title: "This Month's Tasks", tasks: tasks, filter: .month)
+                        TaskSectionView(title: "Other Tasks", tasks: tasks, filter: .other)
+                    }
+                    .foregroundColor(.primary)
+                    .listStyle(.automatic) // Use plain list style// Remove list background
+                    .navigationBarTitle("My Tasks")
+                    .navigationBarItems(leading: EditButton(), trailing: Button(action: {
+                        showingCreateTaskView = true
+                    }) {
+                        Image(systemName: "plus")
+                    })
+                    .sheet(isPresented: $showingCreateTaskView) {
+                        CreateTaskView()
+                    }
                 }
             }
         }

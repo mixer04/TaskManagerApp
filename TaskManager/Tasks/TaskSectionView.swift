@@ -16,11 +16,12 @@ struct TaskSectionView: View {
     var body: some View {
         let filteredTasks = filterTasks(tasks: tasks, for: filter)
         
-        if !filteredTasks.isEmpty {
+        if (!filteredTasks.isEmpty) {
             Section(header: Text(title)) {
                 ForEach(filteredTasks) { task in
                     NavigationLink(destination: TaskDetailView(task: task)) {
                         TaskRowView(task: task)
+                            
                     }
                 }
                 .onDelete { offsets in

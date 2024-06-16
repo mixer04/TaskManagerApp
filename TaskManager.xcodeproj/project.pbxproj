@@ -20,6 +20,10 @@
 		426E82872C1E52A4005F3A46 /* TaskSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426E82862C1E52A4005F3A46 /* TaskSectionView.swift */; };
 		426E82892C1E53D3005F3A46 /* DateFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426E82882C1E53D3005F3A46 /* DateFilter.swift */; };
 		426E828C2C1E56A2005F3A46 /* ProgressBarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426E828B2C1E56A2005F3A46 /* ProgressBarsView.swift */; };
+		426E828E2C1E5F87005F3A46 /* PurpleGlassBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426E828D2C1E5F87005F3A46 /* PurpleGlassBackgroundView.swift */; };
+		426E82902C1E61C8005F3A46 /* StaticPurpleBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426E828F2C1E61C8005F3A46 /* StaticPurpleBackgroundView.swift */; };
+		426E82922C1E64D2005F3A46 /* ArchivedTaskSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426E82912C1E64D2005F3A46 /* ArchivedTaskSectionView.swift */; };
+		426E82962C1E6A63005F3A46 /* VisualEffectBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426E82952C1E6A63005F3A46 /* VisualEffectBlurView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +41,10 @@
 		426E82862C1E52A4005F3A46 /* TaskSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSectionView.swift; sourceTree = "<group>"; };
 		426E82882C1E53D3005F3A46 /* DateFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFilter.swift; sourceTree = "<group>"; };
 		426E828B2C1E56A2005F3A46 /* ProgressBarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarsView.swift; sourceTree = "<group>"; };
+		426E828D2C1E5F87005F3A46 /* PurpleGlassBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurpleGlassBackgroundView.swift; sourceTree = "<group>"; };
+		426E828F2C1E61C8005F3A46 /* StaticPurpleBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticPurpleBackgroundView.swift; sourceTree = "<group>"; };
+		426E82912C1E64D2005F3A46 /* ArchivedTaskSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivedTaskSectionView.swift; sourceTree = "<group>"; };
+		426E82952C1E6A63005F3A46 /* VisualEffectBlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectBlurView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +103,11 @@
 				426E82742C1E421E005F3A46 /* Task.swift */,
 				426E827A2C1E42DB005F3A46 /* TaskDetailView.swift */,
 				426E82762C1E423B005F3A46 /* TaskListView.swift */,
+				426E82912C1E64D2005F3A46 /* ArchivedTaskSectionView.swift */,
+				426E828D2C1E5F87005F3A46 /* PurpleGlassBackgroundView.swift */,
+				426E828F2C1E61C8005F3A46 /* StaticPurpleBackgroundView.swift */,
 				426E82842C1E5292005F3A46 /* TaskRowView.swift */,
+				426E82952C1E6A63005F3A46 /* VisualEffectBlurView.swift */,
 				426E82862C1E52A4005F3A46 /* TaskSectionView.swift */,
 				426E82782C1E424C005F3A46 /* CreateTaskView.swift */,
 			);
@@ -172,9 +184,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				426E82962C1E6A63005F3A46 /* VisualEffectBlurView.swift in Sources */,
 				426E828C2C1E56A2005F3A46 /* ProgressBarsView.swift in Sources */,
+				426E82922C1E64D2005F3A46 /* ArchivedTaskSectionView.swift in Sources */,
 				426E82852C1E5292005F3A46 /* TaskRowView.swift in Sources */,
+				426E82902C1E61C8005F3A46 /* StaticPurpleBackgroundView.swift in Sources */,
 				426E827F2C1E4F82005F3A46 /* MockDataProvider.swift in Sources */,
+				426E828E2C1E5F87005F3A46 /* PurpleGlassBackgroundView.swift in Sources */,
 				426E827B2C1E42DB005F3A46 /* TaskDetailView.swift in Sources */,
 				426E82892C1E53D3005F3A46 /* DateFilter.swift in Sources */,
 				426E82872C1E52A4005F3A46 /* TaskSectionView.swift in Sources */,
