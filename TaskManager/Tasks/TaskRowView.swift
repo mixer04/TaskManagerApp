@@ -26,7 +26,7 @@ struct TaskRowView: View {
                     .font(.title)
             }
         }
-        .padding()
+        
         .cornerRadius(10)
     }
 }
